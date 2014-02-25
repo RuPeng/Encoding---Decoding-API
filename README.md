@@ -1,16 +1,17 @@
-The main features of my application:
-1. This API provides three Encoding&Decoding algorithms: Huffman, Runlength and Base64.
-2. Each algorithm can be parsed a string, a file or an URL.
+The main features of my application: 
+ 1. This API provides three Encoding&Decoding algorithms: Huffman, Runlength and Base64.
+ 2. Each algorithm can be parsed a string, a file or an URL.
 
 
 
 The instructions for running the programme (by using the Runner.java in G00307401.zip):
+
 1. Use ant build the source file.
 2. Set classpath and run.
    Executing the following command from a console:
-   (1)SET CLASSPATH=.;encoding/encoder.jar 
-   (2)javac Runner.java
-   (3)java Runner
+	(1)SET CLASSPATH=.;encoding/encoder.jar 
+	(2)javac Runner.java
+	(3)java Runner
 
 
 
