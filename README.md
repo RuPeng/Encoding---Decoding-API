@@ -9,9 +9,9 @@ The instructions for running the programme (by using the Runner.java in G0030740
 1. Use ant build the source file.
 2. Set classpath and run.
    Executing the following command from a console:
-	(1)SET CLASSPATH=.;encoding/encoder.jar 
-	(2)javac Runner.java
-	(3)java Runner
+(1)SET CLASSPATH=.;encoding/encoder.jar 
+(2)javac Runner.java
+(3)java Runner
 
 
 
