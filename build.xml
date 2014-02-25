@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ===========================================================================================
+     B.Sc. Software Development – Advanced Object-Oriented Design Principles & Patterns (2013)  
+     
+     Encoding and Decoding API for Java
+     =========================================================================================== -->
+<project name="Encode" default="archive">
+    <description>
+    	Compile the source code, generate JavaDocs and package the application in a JAR Archive.
+    </description>
+	
+	<!-- Declare global properties (name/value pairs) for this build -->
+	<property name="srcDir" value="src/ie/gmit/"/>
+	<property name="testDir" value="src/ie/gmit/test"/>
+	
+	<property name="distDir" value="encoding"/>
+	<property name="buildDir" value="${distDir}/build"/>
+	<property name="docDir" value="${distDir}/docs"/>
+	
+	<!-- Delete any previously created directories and files -->
+    <target name="clean">
+    	<delete dir="${buildDir}"/>
+        <delete dir="${distDir}"/>        
+    	<delete dir="${docDir}"/>  
+    </target>
+	
+	<!-- Initialisation task -->
+    <target name="init" depends="clean">
+		<tstamp/>
+    	<mkdir dir="${buildDir}"/>
+        <mkdir dir="${distDir}"/>        
+    	<mkdir dir="${docDir}"/> 
+    </target>	
+    
+    <!-- Set CLASSPATH -->
+	<path id="lib.path.ref">
+   		<fileset dir="src/lib" includes="*.jar"/>
+  	</path>
+ 
+
+	<!-- Compile source code -->
+	
+	<target name="compile" depends="init">
+		<javac classpathref="lib.path.ref" srcdir="${srcDir}" destdir="${buildDir}"/>
+	</target>
+	
+	<!-- Generate JavaDocs -->
+    <target name="doc" depends="compile">
+        <javadoc classpathref="lib.path.ref" packagenames="ie.gmit" sourcepath="src" destdir="${docDir}" author="true" version="true"
+            use="true" windowtitle="Encoding and Decoding API for Java">
+            <doctitle><![CDATA[<h1>Encoding and Decoding API for Java</h1>]]></doctitle>
+            <bottom><![CDATA[<i>Copyright &#169; 2013</i>]]></bottom>
+        </javadoc>
+    </target>
+	
+	<!-- Create Java application archive (Jar) -->
+	<target name="archive" depends="doc">
+   	
+    	<jar jarfile="${distDir}/encoder.jar" basedir="${buildDir}">
+		</jar>
+    </target>
+</project>
